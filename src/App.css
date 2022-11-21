@@ -1,0 +1,109 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+body{
+  background-color: #0a1014;
+  margin: 0px;
+	padding: 0px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.collectionStyle{
+  background-repeat: no-repeat;
+	background-attachment: fixed;
+  background-position: center;
+  background-size:cover;
+  background-color: #111111;
+  background-blend-mode: multiply;
+  backdrop-filter: blur(20px);
+}
+
+.mainImg-overlay{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 430px;
+}
+
+
+
+.cwriteup{
+  font-size: 1.1rem;
+}
+
+.artistName{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.ccimg{
+  width: 25%;
+}
+
+.cimg{
+  width: 100%;
+}
+
+.mainImg{
+  width: 100%;
+  height: 430px;
+}
+
+.topChart{
+  width: 100%;
+  height:100px ;
+}
+
+.slick-slide{
+	padding: 0 15px;
+}
+
+.slick-list{
+	margin: 0 -10px;
+}
+
+.bg-c{
+  backdrop-filter: blur(20px);
+  bottom: 0;
+}
+
+
+
+input[type=range]{
+  height: 2px;
+}
+
+.drawer{
+  width: 100%;
+  background: #0a1014;
+  position: absolute;
+  z-index: 10000;
+  height: 100%;
+  transition: 1s;
+}
+
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  background-color: #ffc107;
+}
+
+@media(max-width: 991.98px){
+
+
+}
+
+
+@media(max-width: 767.98px){
+
+	
+
+}
+
+
+@media(max-width: 575.98px){
+
+  .ccimg{
+    width: 100%;
+  }
+	
+}

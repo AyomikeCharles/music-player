@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import songData from '../song/songsdata'
+
 const initialState = {
-    album:songData.collections,
-    value: songData.collections[0],
+    album:'',
+    value: '',
     isLoop:false
 }
 export const playSlice = createSlice({

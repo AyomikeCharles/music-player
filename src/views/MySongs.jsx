@@ -1,10 +1,9 @@
 import { useState } from "react";
-import songsData from "../song/songsdata";
 import { Button, Container,Image,Col,Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { currentPlaying } from '../features/slicer';
-import { Heart } from "iconsax-react";
+import mySongsData from "../song/mySongData";
 import SideNav from "../components/SideNav";
 
 export default function MySongs(){
@@ -18,6 +17,7 @@ export default function MySongs(){
 
     return(
         <>
+        <div className='d-flex'>
             <SideNav/>
             <Container className="mt-4">
                 <div className="d-flex justify-content-center">
@@ -27,7 +27,7 @@ export default function MySongs(){
                 {display==='collections'?
                 <div className="mt-5">
                     <Row className="justify-content-center">
-                        {songsData.myCollection.map((value,i)=>(
+                        {mySongsData.myCollection.map((value,i)=>(
                             <Col key={i} xs={12} md={6} lg={4} onClick={()=>navigate(`/${value.abLink}`)}>
                                 <Image src={value.coverImg} rounded className="w-100 h-100"/>
                             </Col>
@@ -35,29 +35,31 @@ export default function MySongs(){
                     </Row>
                 </div>:
                  <div className="mt-5 text-white">
-                    {songsData.myLikes.length!==0?<Button variant='dark' className='my-1' onClick={()=> dispatch(currentPlaying({music:songsData.myLikes[0],album:songsData.myLikes,loop:true})) }>Play all</Button>:null}
+                    {mySongsData.myLikes.length!==0?<Button variant='dark' className='my-1' onClick={()=> dispatch(currentPlaying({music:mySongsData.myLikes[0],album:mySongsData.myLikes,loop:true})) }>Play all</Button>:null}
                     <Row className="justify-content-center">
-                        {songsData.myLikes.map((info,i)=>(
-                            <Col key={i} xs={12} className='my-3 bg-dark rounded w-100 p-2' onClick={()=> dispatch(currentPlaying({music:info,album:songsData.myLikes,loop:false})) }>
+                        {mySongsData.myLikes.map((info,i)=>{
+                            const minutes = Math.floor(info.duration / 60);
+                            const seconds = info.duration % 60;
+                            return(
+                            <Col key={i} xs={12} className='my-2 crs rounded w-100 p-1' onClick={()=> dispatch(currentPlaying({music:info,album:mySongsData.myLikes,loop:false})) }>
                             <Row className="align-items-center">
                                 <Col  xs={3}>
-                                <Image src={info.thumbnail} alt='' className='ccimg mx-1'/>
-                                <Heart className='d-none d-md-inline'/>
+                                <Image src={info.album.cover_medium} alt='' className='ccimg mx-1'/>
                                 </Col>
                                 <Col xs={6} md={5} className='d-md-flex d-inline justify-content-center artistName'>
-                                    {info.title} - {info.artist}
+                                    {info.title} - {info.artist.name}
                                 </Col>
-                                <Col xs={1}>
-                                    3.23
+                                <Col xs={2}>
+                                {`${minutes} : ${seconds}`}
                                 </Col>
                             </Row>
                         </Col>
-                        ))}
+                        )})}
                     </Row>
                 </div>
                 }
             </Container>
-            
+            </div>
         </>
     )
 }

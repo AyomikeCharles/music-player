@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 export default function Drawer({isOpen,children}){
     useEffect(()=>{
-        console.log(isOpen)
+       
     },[isOpen])
     const drawerOpen = {
            left:'0',

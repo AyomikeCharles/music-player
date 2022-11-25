@@ -28,7 +28,7 @@ export default function MySongs(){
                 <div className="mt-5">
                     <Row className="justify-content-center">
                         {mySongsData.myCollection.map((value,i)=>(
-                            <Col key={i} xs={12} md={6} lg={4} onClick={()=>navigate(`/${value.abLink}`)}>
+                            <Col key={i} xs={12} md={6} lg={4} xl={2} className='p-3' onClick={()=>navigate(`/${value.abLink}`)}>
                                 <Image src={value.coverImg} rounded className="w-100 h-100"/>
                             </Col>
                         ))}
@@ -36,26 +36,26 @@ export default function MySongs(){
                 </div>:
                  <div className="mt-5 text-white">
                     {mySongsData.myLikes.length!==0?<Button variant='dark' className='my-1' onClick={()=> dispatch(currentPlaying({music:mySongsData.myLikes[0],album:mySongsData.myLikes,loop:true})) }>Play all</Button>:null}
-                    <Row className="justify-content-center">
+                    <div className="justify-content-center">
                         {mySongsData.myLikes.map((info,i)=>{
                             const minutes = Math.floor(info.duration / 60);
                             const seconds = info.duration % 60;
                             return(
-                            <Col key={i} xs={12} className='my-2 crs rounded w-100 p-1' onClick={()=> dispatch(currentPlaying({music:info,album:mySongsData.myLikes,loop:false})) }>
+                            <Col key={i} xs={12} className='my-3 crs rounded w-100 p-1' onClick={()=> dispatch(currentPlaying({music:info,album:mySongsData.myLikes,loop:false})) }>
                             <Row className="align-items-center">
                                 <Col  xs={3}>
-                                <Image src={info.album.cover_medium} alt='' className='ccimg mx-1'/>
+                                <Image src={info.album.cover_medium} alt='' className='ccimg'/>
                                 </Col>
                                 <Col xs={6} md={5} className='d-md-flex d-inline justify-content-center artistName'>
                                     {info.title} - {info.artist.name}
                                 </Col>
-                                <Col xs={2}>
+                                <Col xs={3} md={2}>
                                 {`${minutes} : ${seconds}`}
                                 </Col>
                             </Row>
                         </Col>
                         )})}
-                    </Row>
+                    </div>
                 </div>
                 }
             </Container>

@@ -74,7 +74,6 @@ export default function Collections({playListId,writeup,link,cover}){
     },[])
 
 
-   console.log(data)
    
 
     if(loading)return(
@@ -93,10 +92,10 @@ export default function Collections({playListId,writeup,link,cover}){
                     
                     <Container className="py-4">
                         <div className="d-block d-md-flex">
-                            <Col xs={12} md={6} lg={4}>
+                            <Col xs={12} md={6} lg={4} xl={3}>
                                 <Image src={data.picture_big} alt='' className='cimg rounded'/>
                             </Col>
-                            <Col xs={12} md={6} lg={5} className='p-2 text-white'>
+                            <Col xs={12} md={6} lg={5} xl={4} className='p-2 text-white'>
                                 <h3>{data.title}</h3>
                                 <div className='cwriteup text-justify'>{writeup}</div>
                                 <div className="mb-1"><span>{data.tracks.data.length} songs </span> - <span> 18 hrs+</span></div>
@@ -114,14 +113,14 @@ export default function Collections({playListId,writeup,link,cover}){
                                 return(
                                 <Col key={i} xs={12} className='my-3 rounded w-100 p-1 crs'>
                                     <Row className="align-items-center">
-                                        <Col  xs={5} md={4} lg={3}>
+                                        <Col  xs={4} md={4} lg={3}>
                                         <Image src={info.album.cover_medium} alt='' className='ccimg mx-1' onClick={()=> dispatch(currentPlaying({music:info,album:data.tracks.data,loop:false})) }/>
                                         <Heart size='20'  onClick={()=>addToLikes(info)}/>
                                         </Col>
                                         <Col xs={5} md={5} className='d-md-flex d-inline justify-content-center artistName' onClick={()=> dispatch(currentPlaying({music:info,album:data.tracks.data,loop:false})) }>
                                             {info.title} - {info.artist.name}
                                         </Col>
-                                        <Col xs={2} onClick={()=> dispatch(currentPlaying({music:info,album:data.tracks.data,loop:false})) }>
+                                        <Col xs={3} md={2} onClick={()=> dispatch(currentPlaying({music:info,album:data.tracks.data,loop:false})) }>
                                             {`${minutes} : ${seconds}`}
                                         </Col>
                                     </Row>

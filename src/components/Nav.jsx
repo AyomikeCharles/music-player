@@ -33,9 +33,9 @@ export default function TopNav(){
                         <div><Image src={logo} alt=''/></div>
                         <div onClick={openDrawer} className='my-4'><Link style={{textDecoration:'none'}} to='/' className='text-white'> <Home2 color='#ffc107'/> Home</Link></div>
                         <div onClick={openDrawer} className='my-4'><Link style={{textDecoration:'none'}} to='/my-songs' className='text-white'> <MusicDashboard color='#ffc107'/> My Musics</Link></div>
-                        <div onClick={openDrawer} className='my-4'><Link style={{textDecoration:'none'}} to='/' className='text-white'> <Radio color='#ffc107'/> Radio</Link></div>
-                        <div onClick={openDrawer} className='my-4'><Link style={{textDecoration:'none'}} to='/' className='text-white'> <Music color='#ffc107'/> Music video</Link></div>
-                        <div onClick={openDrawer} className='my-4'><Link style={{textDecoration:'none'}} to='/' className='text-white'> <More color='#ffc107'/> More</Link></div>
+                        <div onClick={openDrawer} className='my-4'><Link style={{textDecoration:'none'}} to='/error404' className='text-white'> <Radio color='#ffc107'/> Radio</Link></div>
+                        <div onClick={openDrawer} className='my-4'><Link style={{textDecoration:'none'}} to='/error404' className='text-white'> <Music color='#ffc107'/> Music video</Link></div>
+                        <div onClick={openDrawer} className='my-4'><Link style={{textDecoration:'none'}} to='/error404' className='text-white'> <More color='#ffc107'/> More</Link></div>
                     </Col>
                     <Col   xs={1}>
                         <CloseSquare color='#ffc107' onClick={openDrawer}/>

@@ -23,7 +23,7 @@ function App() {
     
       
         <Routes>
-          <Route path='/' element={<Home playlist={playList}/>}/>
+          <Route exact path='/' element={<Home playlist={playList}/>}/>
           <Route path='/top-world' element={<Collections playListId={playList[0].id} writeup={playList[0].description} link={playList[0].link} cover={playList[0].image} />} />
           <Route path='/top-nigeria' element={<Collections playListId={playList[1].id} writeup={playList[1].description} link={playList[1].link} cover={playList[1].image} />} />
           <Route path='/greatest-hit' element={<Collections playListId={playList[2].id} writeup={playList[2].description} link={playList[2].link} cover={playList[2].image} />} />

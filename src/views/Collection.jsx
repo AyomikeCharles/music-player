@@ -1,5 +1,5 @@
 import { Button, Col, Container, Image, Row, Spinner } from "react-bootstrap";
-import SideNav from '../components/SideNav'
+import SideNav from '../components/SideNav';
 import { Heart,MusicPlay, PlayAdd } from 'iconsax-react'
 import { useDispatch } from 'react-redux';
 import { currentPlaying } from '../features/slicer';
@@ -14,11 +14,14 @@ export default function Collections({playListId,writeup,link,cover}){
 
     const {data,loading,error} = useSongApi(url)
 
+    
+
     const [InCollection, setInCollection] = useState(false)
     const [like, setLike] = useState(false)
-
+    const [likeSongs, setLikeSongs] = useState([...Array(10)].map((_,i)=>({id:i,status:false})))
     const dispatch = useDispatch();
     const mainDiv = useRef()
+    
 
    
 
@@ -38,16 +41,36 @@ export default function Collections({playListId,writeup,link,cover}){
     }
 
 
-    const addToLikes = (song) => {
+    const addToLikes = (song,vl) => {
 
-        if(mySongsData.myLikes.includes(song)){
-            const indexl = mySongsData.myLikes.indexOf(song)
+        if(mySongsData.myLikes.find(({index})=>index===vl)){
+            const indexl = mySongsData.myLikes.indexOf({...song,index:vl})
             mySongsData.myLikes.splice(indexl,1)
-
+            const newLikes = likeSongs.map((obj)=>{
+                if(obj.id===vl){
+                    return{...obj, status:false}
+                }
+                return obj;
+            })
+            setLikeSongs(newLikes) 
+                       
         }else{
-            mySongsData.myLikes.push(song)
+            mySongsData.myLikes.push({...song,index:vl})
+            const newLikes = likeSongs.map((obj)=>{
+                if(obj.id===vl){
+                    return{...obj, status:true}
+                }
+                return obj;
+            })
+            setLikeSongs(newLikes) 
         }
     }
+
+    
+
+    
+
+    
 
     const likeAlbum = () => {
 
@@ -72,6 +95,27 @@ export default function Collections({playListId,writeup,link,cover}){
         }
 
     },[])
+
+    useEffect(()=>{
+
+        mySongsData.myLikes.map((val,i)=>{
+
+           const ind = val.index;
+
+            const newLikes = likeSongs.map((obj)=>{
+                if(obj.id===ind){
+                    return{...obj, status:true}
+                }
+                return obj;
+            })
+            setLikeSongs(newLikes)
+
+        })
+             
+
+    },[])
+
+    
 
 
    
@@ -115,7 +159,7 @@ export default function Collections({playListId,writeup,link,cover}){
                                     <Row className="align-items-center">
                                         <Col  xs={4} md={4} lg={3}>
                                         <Image src={info.album.cover_medium} alt='' className='ccimg mx-1' onClick={()=> dispatch(currentPlaying({music:info,album:data.tracks.data,loop:false})) }/>
-                                        <Heart size='20'  onClick={()=>addToLikes(info)}/>
+                                        <Heart size='20' variant={likeSongs[i]?.status?'Bold':'Linear'} color='red'  onClick={()=>addToLikes(info,i)}/>
                                         </Col>
                                         <Col xs={5} md={5} className='d-md-flex d-inline justify-content-center artistName' onClick={()=> dispatch(currentPlaying({music:info,album:data.tracks.data,loop:false})) }>
                                             {info.title} - {info.artist.name}

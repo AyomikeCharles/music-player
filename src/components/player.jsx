@@ -42,7 +42,7 @@ export default function Player(){
         const index = song.album.indexOf(song.value)
         const nextSong = index  + 1;
 
-        if(nextSong > song.album.length){
+        if(nextSong > song.album.length-1){
             dispatch(currentPlaying({music:song.album[0],album:song.album,loop:song.isLoop}))
         }else{
             dispatch(currentPlaying({music:song.album[nextSong],album:song.album,loop:song.isLoop}))

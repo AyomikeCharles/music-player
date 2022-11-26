@@ -132,7 +132,7 @@ export default function Collections({playListId,writeup,link,cover}){
         <>
         <div className="d-flex collectionStyle" style={{backgroundImage:`url(${cover}`}} ref={mainDiv}>                 
              <SideNav/>
-             {error? <div className="d-flex justify-content-center mx-auto w-50 my-5 align-items-center text-white">unable to fetch data at this time,kindly refresh</div>:
+             {error? <div className="d-flex justify-content-center mx-auto w-50 my-5 align-items-center text-white">unable to fetch data at this time, kindly <Button className variant='dark'><Link to='/' style={{textDecoration:'none',color:'white'}}>Return to home</Link></Button></div>:
                     
                     <Container className="py-4">
                         <div className="d-block d-md-flex">

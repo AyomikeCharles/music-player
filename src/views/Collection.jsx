@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { currentPlaying } from '../features/slicer';
 import { useEffect, useState, useRef } from "react";
 import mySongsData from "../song/mySongData";
+import { Link } from 'react-router-dom'
 
 import useSongApi from "../song/songs";
 
@@ -158,10 +159,10 @@ export default function Collections({playListId,writeup,link,cover}){
                                 <Col key={i} xs={12} className='my-3 rounded w-100 p-1 crs'>
                                     <Row className="align-items-center">
                                         <Col  xs={4} md={4} lg={3}>
-                                        <Image src={info.album.cover_medium} alt='' className='ccimg mx-1' onClick={()=> dispatch(currentPlaying({music:info,album:data.tracks.data,loop:false})) }/>
+                                        <Image src={info.album.cover_medium} alt='' className='ccimg mx-1' onClick={()=> dispatch(currentPlaying({music:info,album:data.tracks.data,loop:true})) }/>
                                         <Heart size='20' variant={likeSongs[i]?.status?'Bold':'Linear'} color='red'  onClick={()=>addToLikes(info,i)}/>
                                         </Col>
-                                        <Col xs={5} md={5} className='d-md-flex d-inline justify-content-center artistName' onClick={()=> dispatch(currentPlaying({music:info,album:data.tracks.data,loop:false})) }>
+                                        <Col xs={5} md={5} className='d-md-flex d-inline justify-content-center artistName' onClick={()=> dispatch(currentPlaying({music:info,album:data.tracks.data,loop:true})) }>
                                             {info.title} - {info.artist.name}
                                         </Col>
                                         <Col xs={3} md={2} onClick={()=> dispatch(currentPlaying({music:info,album:data.tracks.data,loop:false})) }>

@@ -31,7 +31,7 @@ export default function Player(){
             setPlay(true)
             audioRef.current.play()
         } 
-    },[song])
+    },[song.value])
 
     const updateDuration = () => {
         setDuration(audioRef.current.duration)
@@ -75,6 +75,7 @@ export default function Player(){
     }
 
     const updateProgress = () =>{
+        
         if(play){
             setProgress(audioRef.current.currentTime)
         }
@@ -84,12 +85,19 @@ export default function Player(){
         }
     }
 
+    console.log(shuffle)
+    console.log(song.isLoop)
+
     const loopFun = () => {
+    
         if(audioRef.current.currentTime === audioRef.current.duration){
+
             if(shuffle){
                 shf()
+    
             }else{
                 next()
+             
             }
         }
     }
@@ -117,6 +125,9 @@ export default function Player(){
    const shf = () =>{
     const nextSong = Math.floor(Math.random() * song.album.length+1);
     shuffleM(nextSong)
+
+
+    console.log(nextSong)
    }
    
 
@@ -132,17 +143,18 @@ const shuffleM = (getShffleSong) =>{
 }
 
 const handleShuffle = () => {
+
     if(shuffle){
         setShuffle(false)
     }else{
         setShuffle(true)
+        dispatch(currentPlaying({music:song.value,album:song.album,loop:true}))
     }
 }
 
 const handleModal = () =>{
     setShow(true)
 }  
-
 
     
     return(

@@ -23,7 +23,7 @@ export default function Home({playlist}){
                             <div className="mainImg-overlay text-white p-4">
                                 <h5 className='pb-5'>Curated Playlist</h5>
                                 <h1 className='pt-5'>R {'&'} B Hits</h1>
-                                <p className='wrup  mb-5'>Name of songs, Name of songs, Name of songs, Name of songs, Name of songs</p>
+                                <p className='wrup  mb-5'>Burna Boy 'Last Last', Mr Eazi 'Legalize', Rema 'Calm Down', Asa 'Ocean', Omah Lay 'Woman'</p>
                                 <span className='mt-5'><Image src={simg} alt='' className='simg' /> <Heart color='#ffc107'/> <span>41k Likes</span></span>
                             </div>
                             <div className='w-100'>

@@ -11,7 +11,7 @@ function App() {
 
   const playList = [
     {id:'3155776842', info:'+6 songs', description:'top world wide most listened-to songs, every day in this music platform from all over the world', link:'top-world', image:'https://e-cdns-images.dzcdn.net/images/playlist/f1ac18441ab1dabc94282e4d1d5f4955/500x500-000000-80-0-0.jpg', title:'Top World'},
-    {id:'1362516565', info:'+5 songs', description:'hosttest and most listened-to nigeria songs, every day from all over the country in this music platform', link:'top-nigeria', image:'https://e-cdns-images.dzcdn.net/images/playlist/7eb32b89d0e6e5be3f566a6018e9db4b/500x500-000000-80-0-0.jpg', title:'Top Nigeria'},
+    {id:'1362516565', info:'+5 songs', description:'hotest and most listened-to nigeria songs, every day from all over the country in this music platform', link:'top-nigeria', image:'https://e-cdns-images.dzcdn.net/images/playlist/7eb32b89d0e6e5be3f566a6018e9db4b/500x500-000000-80-0-0.jpg', title:'Top Nigeria'},
     {id:'1257015791', info:'+8 songs', description:'greatest hit of all time, hours of non stop classic tracks from some of the best hitmakers world wide', link:'greatest-hit', image:'https://e-cdns-images.dzcdn.net/images/playlist/bbe51d70ec5b6e113963adcb5bff87ef/500x500-000000-80-0-0.jpg', title:'Greates Hit'},
   ]
 
